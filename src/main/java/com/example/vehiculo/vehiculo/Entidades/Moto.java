@@ -1,8 +1,10 @@
 package com.example.vehiculo.vehiculo.Entidades;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "idVehiculo")
 public class Moto extends Vehiculo{
     String cilindrada;
     String tipo;
