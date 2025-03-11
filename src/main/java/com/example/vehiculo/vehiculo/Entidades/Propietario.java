@@ -10,7 +10,7 @@ public class Propietario {
     Long idPropietario;
     String nombre;
     String apellidos;
-    @OneToMany(mappedBy = "propietario")
+    @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
     List<Vehiculo> vehiculos;
 
     public Propietario() {

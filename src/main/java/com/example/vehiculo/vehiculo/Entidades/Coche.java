@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "idVehiculo")
+//@PrimaryKeyJoinColumn(name = "idVehiculo")
 public class Coche extends Vehiculo {
     int puertas;
     int plazas;
