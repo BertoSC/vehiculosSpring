@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface VehiculoRepositorio extends JpaRepository<Vehiculo, Long> {
+    // Encuentra vehiculos de una marca
 
     List<Vehiculo> findAllByMarca(String marca);
 
@@ -19,6 +20,7 @@ public interface VehiculoRepositorio extends JpaRepository<Vehiculo, Long> {
 
     // La consulta toma todos los vehiculos y utiliza case para setear true o false si encuentra alguno
     // TYPE se usa en situaciones de herencia, para recibir en la consulta el .class de la subclase que estás buscando
+    // La etiqueta @Param es necesaria para indicar el tipo de parámetro que se le pasa a la Query
 
     @Query("SELECT CASE WHEN COUNT(v) > 0 THEN TRUE ELSE FALSE END " +
             "FROM Vehiculo v WHERE v.idVehiculo = :idVehiculo AND TYPE(v) = :vehiculoType")
@@ -26,7 +28,8 @@ public interface VehiculoRepositorio extends JpaRepository<Vehiculo, Long> {
                                               @Param("vehiculoType") Class vehiculoType);
 
 
-    // Devuelve el vehículo en un objeto VehiculoDTO  a partir de un id
+    // Devuelve el vehículo en formato de objeto VehiculoDTO a partir de un id
+
     @Query("SELECT new com.example.vehiculo.vehiculo.Entidades.VehiculoDTO(v.idVehiculo, v.marca, v.modelo, v.año, v.precio, CONCAT(v.propietario.nombre,' ',v.propietario.apellidos))" +
             "from Vehiculo v where v.idVehiculo= :idVehiculo")
     VehiculoDTO findVehiculoDTOById(@Param("idVehiculo") Long idVehiculo);
