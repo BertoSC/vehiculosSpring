@@ -51,13 +51,13 @@ public class Moto extends Vehiculo{
     public String toString() {
         return "Moto{" +
                 "idVehiculo=" + idVehiculo +
-                ", cilindrada='" + cilindrada + '\'' +
-                ", tipo='" + tipo + '\'' +
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", año='" + año + '\'' +
                 ", precio=" + precio +
-                ", propietario=" + propietario +
+                ", propietario=" + propietario.nombre +
+                ", cilindrada='" + cilindrada + '\'' +
+                ", tipo='" + tipo + '\'' +
                 '}';
     }
 }

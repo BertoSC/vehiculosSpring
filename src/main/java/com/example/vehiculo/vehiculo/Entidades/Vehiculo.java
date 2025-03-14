@@ -99,7 +99,7 @@ public abstract class Vehiculo {
                 ", modelo='" + modelo + '\'' +
                 ", año='" + año + '\'' +
                 ", precio=" + precio +
-                ", propietario=" + propietario +
+                ", propietario=" + propietario.nombre +
                 '}';
     }
 }
